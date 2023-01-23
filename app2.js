@@ -1,8 +1,4 @@
-// new Vue({
-//     el: '#appVue',
-//     data:{},
-//     methods:{}
-// })
+'use strict';
 
 let plzOrt;
 let standortSpendezentrum = '50667'

@@ -13,7 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/styles/styles.css">
 
-    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
 
 </head>
 
@@ -21,151 +22,188 @@
 
 <body>
 
-    <!-- Navigationsleiste -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-lg-3 sticky-top">
-        <div class="container">
+    <div id="appVue">
 
 
-            <a class="navbar-brand fw-bold fs-2" href="#">
-                <img src="/assets/Logo.png" alt="Logo" width="40" height="40"
-                    class="d-inline-block align-text-top me-2">
-                Kreiselkleider
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-4">
-                    <li class="nav-item mx-lg-2">
-                        <a class="nav-link text-white" href="#kleiderspende">Spende</a>
-                    </li>
-                    <li class="nav-item mx-lg-2">
-                        <a class="nav-link text-white" href="Spendenregionen.html">Spendenregionen</a>
-                    </li>
-                </ul>
+        <!-- Navigationsleiste -->
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark pt-lg-3 sticky-top">
+            <div class="container">
+
+
+                <a class="navbar-brand fw-bold fs-2" href="#">
+                    <img src="/assets/Logo.png" alt="Logo" width="40" height="40"
+                        class="d-inline-block align-text-top me-2">
+                    Kreiselkleider
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 fs-4">
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link text-white" href="#kleiderspende">Spende</a>
+                        </li>
+                        <li class="nav-item mx-lg-2">
+                            <a class="nav-link text-white" href="Spendenregionen.html">Spendenregionen</a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Container für die Überschrift und den Einlieitungstext -->
-    <div class="container mt-5">
-        <h2>Herzlich Willkommen bei Kreiselkleider!</h2>
-        <p class="mt-5 fs-5">
-            Im folgenden können Sie Ihre Kleider für eine Spende registrieren. Sie können dabei auswählen, ob Ihre
-            Kleider von einem Ort Ihrer Wahl abgeholt werden oder Sie diese direkt in der Geschäftsstelle vorbeibringen
-            möchten.
-            <br> Außerdem können Sie auswählen, in welche Spendenregion Ihre Kleiderspende gespendet werden soll.
-            <br> Viel Spaß bei der Spende!
-        </p>
-    </div>
-
-    <!-- Eingabe der Kleiderspande -->
-    <div class="container mt-5 footer" id="appVue">
-        <h2 id="kleiderspende">Kleiderspende</h2>
-
-        <div class="mt-4">
-            Übergabe an der Geschäftsstelle
-            <label class="switch mx-2">
-                <input @change="onChangeSwitchAbholung" id="switchAbholung" type="checkbox">
-                <span class="slider round"></span>
-            </label>
-            Abholung
+        <!-- Container für die Überschrift und den Einlieitungstext -->
+        <div class="container mt-5">
+            <h2>Herzlich Willkommen bei Kreiselkleider!</h2>
+            <p class="mt-5 fs-5">
+                Im folgenden können Sie Ihre Kleider für eine Spende registrieren. Sie können dabei auswählen, ob Ihre
+                Kleider von einem Ort Ihrer Wahl abgeholt werden oder Sie diese direkt in der Geschäftsstelle
+                vorbeibringen
+                möchten.
+                <br> Außerdem können Sie auswählen, in welche Spendenregion Ihre Kleiderspende gespendet werden soll.
+                <br> Viel Spaß bei der Spende!
+            </p>
         </div>
 
-        <form class="mt-4 row g-3 was-validated">
+        <!-- Eingabe der Kleiderspande -->
+        <div class="container mt-5 footer">
+            <h2 id="kleiderspende">Kleiderspende</h2>
 
-            <!-- Eingabe der Art der Kleiderspende mit Überprüfung, ob ein Text eingegeben wurde -->
-            <div class="mb-3 col-12 col-xl-8">
-                <label for="inputArtKleiderspende" class="form-label">Art der Kleiderspende</label>
-                <input autocomplete="off" type="text" class="form-control" id="inputArtKleiderspende"
-                    placeholder="Art der Kleiderspende ..." required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie ein Art der Kleiderspende ein!
-                </div>
-            </div>
-
-
-            <div class="mb-3 col-12 col-xl-8">
-                <label for="selectKriesengebiet" class="form-label">Krisengebiet</label>
-                <select autocomplete="off" id="selectKriesengebiet" class="form-select"
-                    aria-label="Default select example">
-                    <option value="x" selected>Wählen Sie ein Krisengebiet...</option>
-                    <option value="kolumbien">Kolumbien</option>
-                    <option value="chile">Chile</option>
-                    <option value="mali">Mali</option>
-                    <option value="nigeria">Nigeria</option>
-                    <option value="kamerum">Kamerum</option>
-                    <option value="zentralafrikansicheRepublik">Zentralafrikansiche Republik</option>
-                    <option value="demokratischeRepublikKongo">Demokratische Republik Kongo</option>
-                    <option value="ukraine">Ukraine</option>
-                </select>
-                <div class="invalid-feedback">Bitte wählen Sie ein Kriesengebit.</div>
-            </div>
-
-        </form>
-        <form  :class="{abholung? 'd-block':'d-none'}" id="adressEingabeForm">
-            <div class="col-12 col-md-6 col-xl-8">
-                <label for="inputVorname" class="form-label">Vorname *</label>
-                <input autocomplete="off" type="text" class="form-control" id="inputVorname" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie einen Vornamen ein!
-                </div>
-            </div>
-            <div class="col-12 col-md-6 col-xl-8">
-                <label for="inputNachname" class="form-label">Nachname *</label>
-                <input autocomplete="off" type="text" class="form-control" id="inputNachname" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie einen Nachnamen ein!
-                </div>
-            </div>
-            <div class="col-md-12"></div>
-            <div class="col-9 col-md-9 col-xl-5">
-                <label for="inputStrasse" class="form-label">Straße</label>
-                <input autocomplete="off" type="text" class="form-control" id="inputStrasse" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie eine Straße ein!
-                </div>
-            </div>
-            <div class="col-3">
-                <label for="inputHausnummer" class="form-label d-md-none">Nr.</label>
-                <label for="inputHausnummer" class="form-label d-none d-md-block">Hausnummer</label>
-                <input autocomplete="off"  type="text" class="form-control" id="inputHausnummer" required>
-                <div class="invalid-feedback">
-                    Bitte geben Sie eine richtige Hausnummer ein!
-                </div>
-            </div>
-            <div class="col-md-12"></div>
-            <div class="col-4 col-xl-3">
-                <label for="inputPlz" class="form-label">PLZ</label>
-                <input autocomplete="off"  type="text" class="form-control" id="inputPlz" required>
-                <div class="invalid-feedback">
-                    Die Kleiderspende kann von dieser Adresse nicht abgeholt werden, da Sie nicht in unserem
-                    Geschäftsbereich liegt!
-                </div>
-            </div>
-            <div class="col-8 col-xl-5">
-                <label for="inputStadt" class="form-label">Stadt</label>
-                <input autocomplete="off"  type="text" class="form-control" id="inputStadt" readonly>
+            <div class="mt-4">
+                Übergabe an der Geschäftsstelle
+                <label class="switch mx-2">
+                    <input @change="onChangeSwitchAbholung" id="switchAbholung" type="checkbox">
+                    <span class="slider round"></span>
+                </label>
+                Abholung
             </div>
 
 
-            <div class="d-flex flex-row justify-content-end col-12 col-xl-8">
-                <button type="submit" class="btn btn-danger">Registrieren</button>
+            <form class="mt-4 row g-3 needs-validated">
+
+                <!-- Eingabe der Art der Kleiderspende mit Überprüfung, ob ein Text eingegeben wurde -->
+                <div class="mb-3 col-12 col-xl-8">
+                    <label for="inputArtKleiderspende" class="form-label">Art der Kleiderspende</label>
+                    <input autocomplete="off" type="text" class="form-control" id="inputArtKleiderspende"
+                        v-model="artKleiderspende" placeholder="Art der Kleiderspende ..." required>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie ein Art der Kleiderspende ein!
+                    </div>
+                </div>
+
+
+                <div class="mb-3 col-12 col-xl-8">
+                    <label for="selectKriesengebiet" class="form-label">Krisengebiet</label>
+                    <select autocomplete="off" id="selectKriesengebiet" class="form-select"
+                        aria-label="Default select example" v-model="krisengebiet">
+                        <option value="x" selected>Wählen Sie ein Krisengebiet...</option>
+                        <option value="Kolumbien">Kolumbien</option>
+                        <option value="Chile">Chile</option>
+                        <option value="Mali">Mali</option>
+                        <option value="Nigeria">Nigeria</option>
+                        <option value="Kamerum">Kamerum</option>
+                        <option value="Zentralafrikansiche Republik">Zentralafrikansiche Republik</option>
+                        <option value="Demokratische Republik Kongo">Demokratische Republik Kongo</option>
+                        <option value="Ukraine">Ukraine</option>
+                    </select>
+                    <div class="invalid-feedback">Bitte wählen Sie ein Kriesengebiet.</div>
+                </div>
+
+                <div class="col-12 col-md-6 col-xl-8" :class="{'d-none': !abholung}">
+                    <label for="inputVorname" class="form-label">Vorname *</label>
+                    <input autocomplete="off" type="text" class="form-control" id="inputVorname" v-model="vorname"
+                        required>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie einen Vornamen ein!
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-xl-8" :class="{'d-none': !abholung}">
+                    <label for="inputNachname" class="form-label">Nachname *</label>
+                    <input autocomplete="off" type="text" class="form-control" id="inputNachname" v-model="nachname"
+                        required>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie einen Nachnamen ein!
+                    </div>
+                </div>
+                <div class="col-md-12" :class="{'d-none': !abholung}"></div>
+                <div class="col-9 col-md-9 col-xl-5" :class="{'d-none': !abholung}">
+                    <label for="inputStrasse" class="form-label">Straße</label>
+                    <input autocomplete="off" type="text" class="form-control" id="inputStrasse" v-model="strasse"
+                        required>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie eine Straße ein!
+                    </div>
+                </div>
+                <div class="col-3" :class="{'d-none': !abholung}">
+                    <label for="inputHausnummer" class="form-label d-md-none">Nr.</label>
+                    <label for="inputHausnummer" class="form-label d-none d-md-block">Hausnummer</label>
+                    <input autocomplete="off" type="text" class="form-control" id="inputHausnummer" v-model="hausnummer"
+                        required>
+                    <div class="invalid-feedback">
+                        Bitte geben Sie eine richtige Hausnummer ein!
+                    </div>
+                </div>
+                <div class="col-md-12" :class="{'d-none': !abholung}"></div>
+                <div class="col-4 col-xl-3" :class="{'d-none': !abholung}">
+                    <label for="inputPlz" class="form-label">PLZ</label>
+                    <input @change="changePlz" autocomplete="off" type="text" class="form-control" id="inputPlz"
+                        v-model="plz" required>
+                    <div class="invalid-feedback">
+                        Die Kleiderspende kann von dieser Adresse nicht abgeholt werden, da Sie nicht in unserem
+                        Geschäftsbereich liegt!
+                    </div>
+                </div>
+                <div class="col-8 col-xl-5" :class="{'d-none': !abholung}">
+                    <label for="inputStadt" class="form-label">Stadt</label>
+                    <input autocomplete="off" type="text" class="form-control" id="inputStadt" v-model="ort" readonly>
+                </div>
+
+
+                <div class="d-flex flex-row justify-content-end col-12 col-xl-8">
+                    <button @click="validation" type="submit" class="btn btn-danger">Registrieren</button>
+                </div>
+            </form>
+
+
+            <div class="container mt-5 footer fs-5" id="registration">
+                <h2>Vielen Dank für Ihre Kleiderspende!</h2>
+                <p class="mt-5">Wir haben folgende Eingaben von Ihnen registiert:</p>
+
+                <div class="row align-items-baseline">
+                    <label class="col-5" for="spanEingabeAbholung">Übergabeart:</label>
+                    <span class="col-7" id="spanEingabeAbholung">{{eingabeAbholung}}</span>
+                </div>
+                <div class="row mt-2 align-items-baseline">
+                    <label class="col-5" for="spanEingabeKrisengebiet">Krisengebiet:</label>
+                    <span class="col-7" id="spanEingabeKrisengebiet">{{krisengebiet}}</span>
+                </div>
+                <div class="row mt-2 align-items-baseline">
+                    <label class="col-5" for="spanEingabeKleiderart">Art der Kleiderspende:</label>
+                    <span class="col-7" id="spanEingabeKleiderart">{{artKleiderspende}}</span>
+                </div>
+                <div class="row mt-2 align-items-baseline" :class="{'d-none': !abholung}">
+                    <label class="col-5" for="spanEingabeKrisengebiet">Name:</label>
+                    <span class="col-7" id="spanEingabeKrisengebiet">{{vorname + ' ' + nachname}}</span>
+                </div>
+                <div class="row mt-2 align-items-baseline" :class="{'d-none': !abholung}">
+                    <label class="col-5" for="spanEingabeKrisengebiet">Anschrift:</label>
+                    <span class="col-7" id="spanEingabeKrisengebiet">{{strasse + ' ' + hausnummer}}</span>
+                </div>
+                <div class="row mt-2 align-items-baseline" :class="{'d-none': !abholung}">
+                    <label class="col-5" for="spanEingabeKrisengebiet"></label>
+                    <span class="col-7" id="spanEingabeKrisengebiet">{{plz + ' ' + ort}}</span>
+                </div>
+
             </div>
-        </form>
+        </div>
     </div>
-
-
-
     <nav class="navbar fixed-bottom navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand fs-5" href="#">&copy 2023 Kreiselkleider</a>
             <a class="navbar-brand fs-5" href="impressum.html">Impressum</a>
         </div>
     </nav>
-
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">

@@ -20,17 +20,35 @@ const {
 createApp({
     data() {
         return {
-            abholung: false, 
+            abholung: false,
             wasValidated: false,
             artKleiderspende: '',
             krisengebiet: 'x',
-            vorname:'',
-            nachname:'',
-            strasse:'',
-            hausnummer:'',
-            plz:'',
-            ort:'',
-            eingabeAbholung:'Übergabe an der Geschäftsstelle',
+            vorname: '',
+            nachname: '',
+            strasse: '',
+            hausnummer: '',
+            plz: '',
+            ort: '',
+            eingabeAbholung: 'Übergabe an der Geschäftsstelle',
+            validEingabeArtKleiderspende: '',
+            invalidEingabeArtKleiderspende: '',
+            validEingabeKrisengebiet: '',
+            invalidEingabeKrisengebiet: '',
+            validEingabeVorname: '',
+            invalidEingabeVorname: '',
+            validEingabeNachname: '',
+            invalidEingabeNachname: '',
+            validEingabeStrasse: '',
+            invalidEingabeStrasse: '',
+            validEingabeHausnummer: '',
+            invalidEingabeHausnummer: '',
+            validEingabePlz: '',
+            invalidEingabePlz: '',
+            fehlermeldungPlz: '',
+            datum: '',
+            uhrzeit: ''
+
 
         }
     },
@@ -39,30 +57,63 @@ createApp({
             this.abholung = this.abholung == true ? false : true;
             this.eingabeAbholung = this.abholung == true ? 'Abholung' : 'Übergabe an der Geschäftsstelle';
         },
-        validation(){
+        validation() {
 
-            
+            this.validEingabeArtKleiderspende = this.artKleiderspende != '' ? true : false;
+            this.invalidEingabeArtKleiderspende = this.artKleiderspende == '' ? true : false;
 
-            this.wasValidated = true;
-        },
-        changePlz(){
-            // let eingabePlz = event.target.value
+            this.validEingabeKrisengebiet = this.krisengebiet != 'x' ? true : false;
+            this.invalidEingabeKrisengebiet = this.krisengebiet == 'x' ? true : false;
 
-            if (standortSpendezentrum.substring(0, 2) === this.plz.substring(0, 2)) {
+            this.validEingabeVorname = this.vorname != '' ? true : false;
+            this.invalidEingabeVorname = this.vorname == '' ? true : false;
 
-                this.ort = plzOrt[this.plz] ? plzOrt[this.plz]['ort'] : 'Dies ist keine gültige PLZ';
-                // if (plzOrt[this.plz]) {
-                //     this.ort = plzOrt[this.plz]['ort']
-                // } else {
-                //     document.getElementById('inputStadt').value = 'Dies ist keine gültige PLZ'
-                // }
+            this.validEingabeNachname = this.nachname != '' ? true : false;
+            this.invalidEingabeNachname = this.nachname == '' ? true : false;
+
+            this.validEingabeStrasse = this.strasse != '' ? true : false;
+            this.invalidEingabeStrasse = this.strasse == '' ? true : false;
+
+            this.validEingabeHausnummer = this.hausnummer != '' ? true : false;
+            this.invalidEingabeHausnummer = this.hausnummer == '' ? true : false;
+
+            if (this.plz == '') {
+                this.fehlermeldungPlz = 'Bitte geben Sie eine gültige deutsche PLZ ein.'
+                this.invalidEingabePlz = true;
+                this.validEingabePlz = false;
+
+            } else if (standortSpendezentrum.substring(0, 2) === this.plz.substring(0, 2)) {
+                this.validEingabePlz = true;
+                this.invalidEingabePlz = false;
+
+            } else if (this.ort == '') {
+                this.fehlermeldungPlz = 'Bitte geben Sie eine gültige deutsche PLZ ein.'
+                this.invalidEingabePlz = true;
+                this.validEingabePlz = false;
             } else {
-                this.ort = ''
-                this.plz = ''
+                this.fehlermeldungPlz = 'Die Kleiderspende kann von dieser Adresse nicht abgeholt werden, da Sie nicht in unserem Geschäftsbereich liegt!'
+                this.invalidEingabePlz = true;
+                this.validEingabePlz = false;
             }
+
+            if (this.validEingabeArtKleiderspende && this.validEingabeKrisengebiet) {
+                this.wasValidated = true;
+            }
+            if (this.abholung) {
+                if (this.validEingabeVorname && this.validEingabeNachname && this.validEingabeStrasse && this.validEingabeHausnummer && this.validEingabePlz) {
+                    this.wasValidated = true;
+                } else {
+                    this.wasValidated = false;
+                }
+            }
+
+            let dateNow = new Date()
+            this.uhrzeit = dateNow.toLocaleTimeString('de-de');
+            this.datum = dateNow.toLocaleDateString();
+        },
+        changePlz() {
+
+            this.ort = plzOrt[this.plz] ? plzOrt[this.plz]['ort'] : '';
         }
     }
 }).mount('#appVue')
-
-
-

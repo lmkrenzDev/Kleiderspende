@@ -1,22 +1,22 @@
-body{
-    font-family: 'Dosis', sans-serif;
-    background-color: rgba(230, 227, 227, 0.734);
+body {
+  font-family: 'Dosis', sans-serif;
+  background-color: rgba(230, 227, 227, 0.734);
 }
 
-button{
-    color: black !important;
+button {
+  color: black !important;
 }
 
 
-.footer{
-    margin-bottom: 100px;
+.footer {
+  margin-bottom: 50px;
 }
 
-.btn-danger{
-    background-color: rgba(255, 0, 0, 0.57);
+.btn-danger {
+  background-color: rgba(255, 0, 0, 0.57);
 }
 
- /* The switch - the box around the slider */
+/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -56,15 +56,15 @@ button{
   transition: .4s;
 }
 
-input:checked + .slider {
+input:checked+.slider {
   background-color: rgba(255, 0, 0, 0.57);
 }
 
-input:focus + .slider {
+input:focus+.slider {
   box-shadow: 0 0 1px rgba(255, 0, 0, 0.57);
 }
 
-input:checked + .slider:before {
+input:checked+.slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
@@ -77,8 +77,55 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
-} 
+}
 
 .text-responsive {
   font-size: calc(100% + 1vw + 1vh);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  bottom: auto !important;
+  height: 440px !important;
+  width: 10% !important;
+}
+
+.carousel-inner img {
+  height: 440px;
+}
+
+.carousel-indicators {
+  top: 400px !important
+}
+
+.carousel-caption {
+  top: 350px;
+  bottom: auto;
+}
+
+.carousel-inner p{
+  text-align: justify;
+}
+
+@media (max-width: 576px) {
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    bottom: auto !important;
+    height: 220px !important;
+    width: 10% !important;
+  }
+
+  .carousel-inner img {
+    height: 220px;
+  }
+
+  .carousel-indicators {
+    top: 200px !important
+  }
+
+  .carousel-caption {
+    top: 150px;
+    bottom: auto;
+  }
 }

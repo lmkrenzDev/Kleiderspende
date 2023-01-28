@@ -53,10 +53,11 @@
             </div>
         </nav>
 
-        <!-- Container für die Überschrift und den Einlieitungstext -->
+
+        <!-- Container für die Überschrift und den Einleitungstext -->
         <div class="container mt-5">
             <h2>Herzlich Willkommen bei Kreiselkleider!</h2>
-            <p class="mt-5 fs-5">
+            <p class="mt-5 fs-5 col-12 col-xl-8">
                 Im folgenden können Sie Ihre Kleider für eine Spende registrieren. Sie können dabei auswählen, ob Ihre
                 Kleider von einem Ort Ihrer Wahl abgeholt werden oder Sie diese direkt in der Geschäftsstelle
                 vorbeibringen
@@ -171,27 +172,27 @@
                 <p class="mt-5">Wir haben folgende Eingaben von Ihnen registiert:</p>
 
                 <div class="row align-items-baseline">
-                    <label class="col-5" for="spanEingabeAbholung">Übergabeart:</label>
+                    <label class="col-5 col-md-4 col-lg-3" for="spanEingabeAbholung">Übergabeart:</label>
                     <span class="col-7" id="spanEingabeAbholung">{{eingabeAbholung}}</span>
                 </div>
                 <div class="row mt-2 align-items-baseline">
-                    <label class="col-5" for="spanEingabeKrisengebiet">Krisengebiet:</label>
+                    <label class="col-5 col-md-4 col-lg-3" for="spanEingabeKrisengebiet">Krisengebiet:</label>
                     <span class="col-7" id="spanEingabeKrisengebiet">{{krisengebiet}}</span>
                 </div>
                 <div class="row mt-2 align-items-baseline">
-                    <label class="col-5" for="spanEingabeKleiderart">Art der Kleiderspende:</label>
+                    <label class="col-5 col-md-4 col-lg-3" for="spanEingabeKleiderart">Art der Kleiderspende:</label>
                     <span class="col-7" id="spanEingabeKleiderart">{{artKleiderspende}}</span>
                 </div>
                 <div class="row mt-2 align-items-baseline" :class="{'d-none': !abholung}">
-                    <label class="col-5" for="spanEingabeKrisengebiet">Name:</label>
+                    <label class="col-5 col-md-4 col-lg-3" for="spanEingabeKrisengebiet">Name:</label>
                     <span class="col-7" id="spanEingabeKrisengebiet">{{vorname + ' ' + nachname}}</span>
                 </div>
                 <div class="row mt-2 align-items-baseline" :class="{'d-none': !abholung}">
-                    <label class="col-5" for="spanEingabeKrisengebiet">Anschrift:</label>
+                    <label class="col-5 col-md-4 col-lg-3" for="spanEingabeKrisengebiet">Anschrift:</label>
                     <span class="col-7" id="spanEingabeKrisengebiet">{{strasse + ' ' + hausnummer}}</span>
                 </div>
                 <div class="row mt-2 align-items-baseline" :class="{'d-none': !abholung}">
-                    <label class="col-5" for="spanEingabeKrisengebiet"></label>
+                    <label class="col-5 col-md-4 col-lg-3" for="spanEingabeKrisengebiet"></label>
                     <span class="col-7" id="spanEingabeKrisengebiet">{{plz + ' ' + ort}}</span>
                 </div>
 

@@ -1,2 +1,3 @@
 # Kleiderspende
 
+Mithilfe dieses Portals können Spendende ihre Kleiderspende registrieren. Die Spendenen können dabei selbst entscheiden, in welchs Kriesengebit ihre Spende versendet werden soll. Außerdem können die Spendenen entscheiden, ob sie Ihre Spende vor Ort im Spendenzentrum abgeben oder von zu Hause abholen lassen. Die Abholadresse muss dabei in der Nähe des Spendenzentrums liegen, welches sich in der Innenstadt von Köln (PLZ: 50667) befindet. 

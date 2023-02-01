@@ -1,13 +1,15 @@
+/* Festlegung des Schrifttyps für die gesamte WEbanwendung und die Hintergrundfarbe  */
 body {
   font-family: 'Dosis', sans-serif;
   background-color: rgba(230, 227, 227, 0.734);
 }
 
+/* Schriftfarbe des Buttons auf Schwarz */
 button {
   color: black !important;
 }
 
-
+/* Damit der Content-BEreich nicht über den Footer hinausragt, muss der Content-Berecih einen Abstand nach unten aufweisen */
 .footer {
   margin-bottom: 90px;
 }
@@ -16,7 +18,8 @@ button {
   background-color: rgba(255, 0, 0, 0.57);
 }
 
-/* The switch - the box around the slider */
+
+/* Implementierung des Schalters für die Wahl des Übergabeortes */
 .switch {
   position: relative;
   display: inline-block;
@@ -24,14 +27,13 @@ button {
   height: 26px;
 }
 
-/* Hide default HTML checkbox */
 .switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
-/* The slider */
+
 .slider {
   position: absolute;
   cursor: pointer;
@@ -70,7 +72,6 @@ input:checked+.slider:before {
   transform: translateX(26px);
 }
 
-/* Rounded sliders */
 .slider.round {
   border-radius: 34px;
 }
@@ -83,6 +84,7 @@ input:checked+.slider:before {
   font-size: calc(100% + 1vw + 1vh);
 }
 
+/* Designs für das verwendete Caroussel für die Spendenregionen */
 .carousel-control-prev,
 .carousel-control-next {
   bottom: auto !important;

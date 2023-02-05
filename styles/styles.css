@@ -9,7 +9,7 @@ button {
   color: black !important;
 }
 
-/* Damit der Content-BEreich nicht über den Footer hinausragt, muss der Content-Berecih einen Abstand nach unten aufweisen */
+/* Damit der Content-BEreich nicht über den Footer hinausragt, muss der Content-Bereich einen Abstand nach unten aufweisen */
 .footer {
   margin-bottom: 90px;
 }
